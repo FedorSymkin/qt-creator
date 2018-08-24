@@ -1761,7 +1761,13 @@ void EditorManagerPrivate::updateWindowTitleForDocument(IDocument *document, QWi
     if (!windowTitleVcsTopic.isEmpty())
         windowTitleVcsTopic = QStringLiteral(" [") + windowTitleVcsTopic + QStringLiteral("]");
 
-    const QString documentName = document ? document->displayName() : QString();
+    //const QString documentName = document ? document->displayName() : QString();
+
+    /*
+     * I need option 'always show full file path in title but I didn't find it.
+     * This hack is enough for me at this time.
+    */
+    const QString documentName = filePath;
 
     if (!documentName.isEmpty())
         windowTitle.append(documentName + windowTitleVcsTopic + dashSep);
